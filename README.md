@@ -12,7 +12,7 @@ emoji := emojidata.EmojiData[0]
 // { Name, Unified, NonQualified, Docomo, Au, Softbank, Google...
 fmt.Println(emoji)
 
-// get specified emoji
+// get specified emoji by short name
 starEmoji := emojidata.Get("star")
 
 // print emoji as string: ⭐
