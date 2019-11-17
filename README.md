@@ -15,7 +15,7 @@ fmt.Println(emoji)
 // get specified emoji
 starEmoji := emojidata.Get("star")
 
-// print emoji as string: ⭐??
+// print emoji as string: ⭐
 fmt.Println(starEmoji.String())
 ```
 
