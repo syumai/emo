@@ -1,6 +1,6 @@
 # emojidata
 
-* emojidata is a Go package to provide emoji data of https://github.com/iamcal/emoji-data
+- emojidata is a Go package to provide emoji data of https://github.com/iamcal/emoji-data
 
 ## Usage
 
@@ -21,7 +21,7 @@ fmt.Println(starEmoji.String())
 
 ## Install a CLI tool to get Emoji
 
-* A CLI tool is given as [emo](https://github.com/syumai/emojidata/blob/master/cmd/emo).
+- A CLI tool is given as [emo](https://github.com/syumai/emojidata/blob/master/cmd/emo).
 
 ### Installation
 
@@ -31,7 +31,9 @@ go get -u github.com/syumai/emojidata/cmd/emo
 
 ### Usage of emo
 
-* To get emoji, **just give a name of emoji** as argument.
+#### Simple find
+
+- To get emoji, **just give a name of emoji** as argument.
 
 ```
 # Get emoji of exclamation mark.
@@ -39,7 +41,20 @@ $ emo exclamation
 ❗
 ```
 
-* To copy emoji to your clipboard, please use commands like pbcopy (on Mac) or xsel (on Linux).
+#### Fuzzy find
+
+```
+# Open fuzzy find window
+$ emo
+> exclamation
+  3/1643
+> excla # Enter to get emoji
+❗
+```
+
+#### Copying emoji
+
+- To copy emoji to your clipboard, please use commands like pbcopy (on Mac) or xsel (on Linux).
 
 ```
 # Copy emoji of star to clipboard.
@@ -48,9 +63,9 @@ $ emo star | pbcopy (or `xsel -ib` on Linux)
 
 ## License
 
-* MIT
+- MIT
 
 ## Author
 
-* this package: [syumai](https://github.com/syumai)
-* emoji-data: [iamcal](https://github.com/iamcal)
+- this package: [syumai](https://github.com/syumai)
+- emoji-data: [iamcal](https://github.com/iamcal)
