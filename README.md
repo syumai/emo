@@ -43,6 +43,8 @@ $ emo exclamation
 
 #### Fuzzy find
 
+* emo provides fuzzy find feature using [ktr0731/go-fuzzyfinder](https://github.com/ktr0731/go-fuzzyfinder) .
+
 ```
 # Open fuzzy find window
 $ emo
