@@ -2,10 +2,10 @@
 package emojidata
 
 import (
-	"encoding/json"
 	"io"
 	"io/ioutil"
 
+	"github.com/goccy/go-json"
 	"github.com/rakyll/statik/fs"
 	_ "github.com/syumai/emojidata/statik"
 )
