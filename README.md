@@ -19,7 +19,7 @@ starEmoji := emojidata.Get("star")
 fmt.Println(starEmoji.String())
 ```
 
-## Install a CLI tool to get Emoji
+## Install as CLI tool
 
 - A CLI tool is given as [emo](https://github.com/syumai/emojidata/blob/master/cmd/emo).
 
