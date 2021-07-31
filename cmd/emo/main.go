@@ -6,21 +6,61 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"sort"
 	"time"
 
 	fuzzyfinder "github.com/ktr0731/go-fuzzyfinder"
 	"github.com/syumai/emojidata"
 )
 
-var showRandom = flag.Bool("rand", false, "show random selected emoji")
+var (
+	showRandom              = flag.Bool("rand", false, "show random selected emoji")
+	listSubcategories       = flag.Bool("listsub", false, "list emoji subcategories")
+	showRandomBySubcategory = flag.String("randsub", "", "show random selected emoji by specified subcategory")
+	findBySubcategory       = flag.Bool("findsub", false, "fuzzy find by subcategory of emoji")
+)
 
 func main() {
 	flag.Parse()
+	rand.Seed(time.Now().Unix())
 	if *showRandom {
-		rand.Seed(time.Now().Unix())
 		i := rand.Intn(len(emojidata.EmojiData))
 		emoji := emojidata.EmojiData[i]
 		fmt.Println(emoji.String())
+		return
+	}
+
+	if *showRandomBySubcategory != "" {
+		subCat := *showRandomBySubcategory
+		var subCatEmojis []*emojidata.Emoji
+		for _, emoji := range emojidata.EmojiData {
+			if emoji.Subcategory == subCat {
+				subCatEmojis = append(subCatEmojis, emoji)
+			}
+		}
+		if len(subCatEmojis) == 0 {
+			fmt.Fprintf(os.Stderr, "subcategory %q not found", subCat)
+			return
+		}
+		i := rand.Intn(len(subCatEmojis))
+		emoji := subCatEmojis[i]
+		fmt.Println(emoji.String())
+		return
+	}
+
+	if *listSubcategories {
+		subCatsMap := make(map[string]struct{})
+		for _, emoji := range emojidata.EmojiData {
+			subCatsMap[emoji.Subcategory] = struct{}{}
+		}
+		var subCats []string
+		for subCat := range subCatsMap {
+			subCats = append(subCats, subCat)
+		}
+		sort.Strings(subCats)
+		for _, subCat := range subCats {
+			fmt.Println(subCat)
+		}
 		return
 	}
 
@@ -39,6 +79,9 @@ func main() {
 	idx, err := fuzzyfinder.Find(
 		emojis,
 		func(i int) string {
+			if *findBySubcategory {
+				return fmt.Sprintf("%s_%s", emojis[i].Subcategory, emojis[i].ShortName)
+			}
 			return emojis[i].ShortName
 		},
 		fuzzyfinder.WithPreviewWindow(func(i, w, h int) string {
