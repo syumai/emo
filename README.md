@@ -26,7 +26,7 @@ fmt.Println(starEmoji.String())
 ### Installation
 
 ```
-go get -u github.com/syumai/emojidata/cmd/emo
+go install github.com/syumai/emojidata/cmd/emo@latest
 ```
 
 ### Usage of emo
@@ -52,6 +52,13 @@ $ emo
   3/1643
 > excla # Enter to get emoji
 ❗
+```
+
+#### Random select
+
+```
+$ emo -rand
+😁
 ```
 
 #### Copying emoji
