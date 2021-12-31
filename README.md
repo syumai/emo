@@ -1,5 +1,7 @@
 # emojidata
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/syumai/emojidata.svg)](https://pkg.go.dev/github.com/syumai/emojidata)
+
 - emojidata is a Go package to provide emoji data of https://github.com/iamcal/emoji-data
 
 ## Usage
