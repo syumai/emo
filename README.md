@@ -2,7 +2,7 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/syumai/emo.svg)](https://pkg.go.dev/github.com/syumai/emo)
 
-- emo is a CLI tool to fuzzy-find emojis.
+- emo is a CLI tool to find emojis with fuzzy-find window.
   - This tool is using data of https://github.com/iamcal/emoji-data
 
 ## Installation
