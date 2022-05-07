@@ -5,6 +5,8 @@
 - emo is a CLI tool to find emojis with fuzzy-find window.
   - This tool is using data of https://github.com/iamcal/emoji-data
 
+![](https://user-images.githubusercontent.com/6882878/167252025-8208ccfc-d374-4948-9301-57ba67a6115a.png)
+
 ## Installation
 
 - This tool requires Go 1.18+ for installation.
