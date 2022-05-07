@@ -1,4 +1,4 @@
-package emojidata
+package emo
 
 func Get(key string) *Emoji {
 	emoji, ok := emojiMap[key]

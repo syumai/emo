@@ -10,7 +10,7 @@ import (
 	"time"
 
 	fuzzyfinder "github.com/ktr0731/go-fuzzyfinder"
-	"github.com/syumai/emojidata"
+	"github.com/syumai/emo"
 )
 
 var (
@@ -24,16 +24,16 @@ func main() {
 	flag.Parse()
 	rand.Seed(time.Now().Unix())
 	if *showRandom {
-		i := rand.Intn(len(emojidata.EmojiData))
-		emoji := emojidata.EmojiData[i]
+		i := rand.Intn(len(emo.EmojiData))
+		emoji := emo.EmojiData[i]
 		fmt.Print(emoji.String())
 		return
 	}
 
 	if *showRandomBySubcategory != "" {
 		subCat := *showRandomBySubcategory
-		var subCatEmojis []*emojidata.Emoji
-		for _, emoji := range emojidata.EmojiData {
+		var subCatEmojis []*emo.Emoji
+		for _, emoji := range emo.EmojiData {
 			if emoji.Subcategory == subCat {
 				subCatEmojis = append(subCatEmojis, emoji)
 			}
@@ -50,7 +50,7 @@ func main() {
 
 	if *listSubcategories {
 		subCatsMap := make(map[string]struct{})
-		for _, emoji := range emojidata.EmojiData {
+		for _, emoji := range emo.EmojiData {
 			subCatsMap[emoji.Subcategory] = struct{}{}
 		}
 		var subCats []string
@@ -65,7 +65,7 @@ func main() {
 	}
 
 	if len(flag.Args()) == 1 {
-		emoji := emojidata.Get(flag.Args()[0])
+		emoji := emo.Get(flag.Args()[0])
 		if emoji == nil {
 			fmt.Fprintln(os.Stderr, "emoji was not found")
 			return
@@ -75,7 +75,7 @@ func main() {
 	}
 
 	// fuzzyfind
-	emojis := emojidata.EmojiData
+	emojis := emo.EmojiData
 	idx, err := fuzzyfinder.Find(
 		emojis,
 		func(i int) string {
