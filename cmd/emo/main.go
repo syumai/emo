@@ -26,7 +26,7 @@ func main() {
 	if *showRandom {
 		i := rand.Intn(len(emojidata.EmojiData))
 		emoji := emojidata.EmojiData[i]
-		fmt.Println(emoji.String())
+		fmt.Print(emoji.String())
 		return
 	}
 
@@ -44,7 +44,7 @@ func main() {
 		}
 		i := rand.Intn(len(subCatEmojis))
 		emoji := subCatEmojis[i]
-		fmt.Println(emoji.String())
+		fmt.Print(emoji.String())
 		return
 	}
 
@@ -70,7 +70,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "emoji was not found")
 			return
 		}
-		fmt.Println(emoji.String())
+		fmt.Print(emoji.String())
 		return
 	}
 
@@ -93,5 +93,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(emojis[idx].String())
+	fmt.Print(emojis[idx].String())
 }
