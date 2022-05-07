@@ -22,7 +22,7 @@ var (
 
 func main() {
 	flag.Parse()
-	rand.Seed(time.Now().Unix())
+	rand.Seed(time.Now().UnixNano())
 	if *showRandom {
 		i := rand.Intn(len(emo.EmojiData))
 		emoji := emo.EmojiData[i]
