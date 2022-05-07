@@ -1,53 +1,28 @@
-# emojidata
+# emo
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/syumai/emojidata.svg)](https://pkg.go.dev/github.com/syumai/emojidata)
+[![Go Reference](https://pkg.go.dev/badge/github.com/syumai/emo.svg)](https://pkg.go.dev/github.com/syumai/emo)
 
-- emojidata is a Go package to provide emoji data of https://github.com/iamcal/emoji-data
+- emo is a CLI tool to find emojis with fuzzy-find window.
+  - This tool is using data of https://github.com/iamcal/emoji-data
 
-## Usage
-
-```go
-// EmojiData is a list of emoji
-emoji := emojidata.EmojiData[0]
-
-// print data of emoji
-// { Name, Unified, NonQualified, Docomo, Au, Softbank, Google...
-fmt.Println(emoji)
-
-// get specified emoji by short name
-starEmoji := emojidata.Get("star")
-
-// print emoji as string: ⭐
-fmt.Println(starEmoji.String())
-```
-
-## Install as CLI tool
-
-- A CLI tool is given as [emo](https://github.com/syumai/emojidata/blob/master/cmd/emo).
-
-### Installation
+## Installation
 
 - This tool requires Go 1.18+ for installation.
 
 ```
-go install github.com/syumai/emojidata/cmd/emo@latest
+go install github.com/syumai/emo/cmd/emo@latest
 ```
 
-### Usage of emo
+## Usage
 
-#### Simple find
-
-- To get emoji, **just give a name of emoji** as argument.
+### Simple find
 
 ```
-# Get emoji of exclamation mark.
 $ emo exclamation
 ❗
 ```
 
-#### Fuzzy find
-
-* emo provides fuzzy find feature using [ktr0731/go-fuzzyfinder](https://github.com/ktr0731/go-fuzzyfinder) .
+### Fuzzy find
 
 ```
 # Open fuzzy find window
@@ -58,14 +33,14 @@ $ emo
 ❗
 ```
 
-#### Random select
+### Random select
 
 ```
 $ emo -rand
 😁
 ```
 
-#### Fuzzy find / Random select by subcategory
+### Fuzzy find / Random select by subcategory
 
 ```
 $ emo -listsub
@@ -87,13 +62,38 @@ $ emo -randsub animal-bird
 🦜
 ```
 
-#### Copying emoji
+### Copying emoji
 
 - To copy emoji to your clipboard, please use commands like pbcopy (on Mac) or xsel (on Linux).
 
 ```
 # Copy emoji of star to clipboard.
 $ emo star | pbcopy (or `xsel -ib` on Linux)
+```
+
+## Using as library
+
+### Installation
+
+```console
+go get github.com/syumai/emo
+```
+
+### Usage
+
+```go
+// EmojiData is a list of emoji
+emoji := emo.EmojiData[0]
+
+// print data of emoji
+// { Name, Unified, NonQualified, Docomo, Au, Softbank, Google...
+fmt.Println(emoji)
+
+// get specified emoji by short name
+starEmoji := emo.Get("star")
+
+// print emoji as string: ⭐
+fmt.Println(starEmoji.String())
 ```
 
 ## License

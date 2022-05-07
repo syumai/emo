@@ -1,4 +1,4 @@
-package emojidata
+package emo
 
 import (
 	"fmt"

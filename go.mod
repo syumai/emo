@@ -1,4 +1,4 @@
-module github.com/syumai/emojidata
+module github.com/syumai/emo
 
 go 1.18
 
