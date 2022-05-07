@@ -27,7 +27,7 @@ fmt.Println(starEmoji.String())
 
 ### Installation
 
-- This tool requires Go 1.16+ for installation.
+- This tool requires Go 1.18+ for installation.
 
 ```
 go install github.com/syumai/emojidata/cmd/emo@latest
