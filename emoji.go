@@ -1,7 +1,7 @@
 package emo
 
 import (
-	"fmt"
+	"log"
 	"strconv"
 	"strings"
 )
@@ -51,15 +51,13 @@ func init() {
 
 func (e *Emoji) String() string {
 	parts := strings.Split(e.Unified, "-")
+	runes := make([]rune, len(parts))
 	for i, p := range parts {
-		if len(p) > 4 {
-			parts[i] = fmt.Sprintf("\\U%08s", p)
-		} else {
-			parts[i] = "\\u" + p
+		r, err := strconv.ParseInt(p, 16, 32)
+		if err != nil {
+			log.Fatalf("unexpected error: %v", err)
 		}
+		runes[i] = rune(r)
 	}
-	parts = append([]string{`"`}, parts...)
-	parts = append(parts, `"`)
-	result, _ := strconv.Unquote(strings.Join(parts, ""))
-	return result
+	return string(runes)
 }
