@@ -31,8 +31,11 @@ type Emoji struct {
 	HasImgFacebook bool     `json:"has_img_facebook"`
 }
 
-var EmojiData []*Emoji
-var emojiMap map[string]*Emoji
+var (
+	EmojiData  []*Emoji
+	emojiMap   map[string]*Emoji
+	unifiedMap map[string]*Emoji
+)
 
 func init() {
 	emojis, err := unmarshalEmojiDataJSON()
@@ -41,7 +44,9 @@ func init() {
 	}
 	EmojiData = emojis
 	emojiMap = make(map[string]*Emoji, len(emojis))
+	unifiedMap = make(map[string]*Emoji, len(emojis))
 	for _, emoji := range emojis {
+		unifiedMap[emoji.Unified] = emoji
 		if emoji.ShortName == "" {
 			continue
 		}
