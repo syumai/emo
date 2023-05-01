@@ -2,8 +2,7 @@ package emo
 
 import (
 	_ "embed"
-
-	"github.com/goccy/go-json"
+	"encoding/json"
 )
 
 //go:embed assets/emoji-data/emoji_pretty.json

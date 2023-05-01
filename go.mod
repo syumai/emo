@@ -2,10 +2,7 @@ module github.com/syumai/emo
 
 go 1.18
 
-require (
-	github.com/goccy/go-json v0.9.7
-	github.com/ktr0731/go-fuzzyfinder v0.6.0
-)
+require github.com/ktr0731/go-fuzzyfinder v0.6.0
 
 require (
 	github.com/gdamore/encoding v1.0.0 // indirect
