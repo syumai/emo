@@ -9,7 +9,7 @@
 
 ## Installation
 
-- This tool requires Go 1.18+ for installation.
+- This tool requires Go 1.23.3+ for installation.
 
 ```
 go install github.com/syumai/emo/cmd/emo@latest
