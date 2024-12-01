@@ -1,6 +1,6 @@
 module github.com/syumai/emo
 
-go 1.18
+go 1.23.3
 
 require github.com/ktr0731/go-fuzzyfinder v0.8.0
 
